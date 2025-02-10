@@ -44,45 +44,47 @@ body {
 }
 
 .search-container {
-  border: 2px solid #A1F0C4; /* Green outer border */
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
   max-width: 700px;
-  background-color: white;
-  
-}
-.search-container input, .search-container select {
-  border: none;
-  outline: none;
-  flex: 1;
+  margin: auto;
   padding: 20px;
 }
-.search-container input {
-  border-right: 2px solid #A1F0C4;
-  padding-top: 1px;
-  padding-bottom: 2px;
+.search-bar {
+  border: 2px solid #27e791;
+  border-radius: 20px;
+  overflow: hidden;
 }
-.search-container select{
-margin-right: 83px;
+.text_27e791{
+color: #27e791;
+}
+.search-bar select {
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 .search-btn {
-  background-color: black;
-  color: white;
+  background: black;
+  color: rgb(94, 226, 94);
   border: none;
-  padding: 20px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 18px;
 }
-.search-btn i {
-  margin-right: 5px;
+.icon-color{
+  color: #27e791;
 }
-.popular-jobs {
-  margin-top: 10px;
+.search-btn:hover {
+  background: #27e791;
+  color: black;
+}
+.popular-tags {
   font-size: 14px;
-  color: gray;
+  color: #666;
+  margin-top: 5px;
+}
+.input-filed{
+  outline: none;
+  box-shadow: none;
+  padding: 1rem 1rem;
+  border-right: 2px solid #27e791 !important;
 }
   .hiring-style{
     font-size: 50px;
@@ -116,29 +118,8 @@ margin-right: 83px;
       margin: 0;
       font-size: 2rem;
     }
-    .apply-button {
-      background-color: #00c851;
-      color:#2c2929;
-      border: none;
-    }
+   
     
-    .border-dark:hover{
-      background-color: #d4f6d4;
-    }
-    .about-company {
-      background-color: #f9f9f9;
-      padding: 15px;
-      border-radius: 5px;
-    }
-    .footer {
-      background-color: #ffffff;
-      padding: 20px;
-    }
-    .footer a {
-      text-decoration: none;
-      color: #007bff;
-    }
-  
     .bg-wht{
       background: #6e6565;
       padding: 2rem;
@@ -466,16 +447,13 @@ margin-right: 83px;
 .counter-txt{
   font-size: 48px;
 }
-.footer {
-  background-color: #f8f9fa;
-  padding: 40px 0;
-}
+
 .footer-logo img {
   height: 50px;
 }
 .footer-links {
   list-style: none;
-  padding: 0;
+  padding-left: 10px;
 }
 .footer-links li {
   margin-bottom: 8px;
