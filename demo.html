@@ -1,98 +1,149 @@
-<section class="footer-sec mt-5">
-    <div class="container-fixed"> <!-- Fixed Container -->
-      <div class="row d-flex flex-nowrap"> <!-- Prevent Responsive Wrapping -->
-          <!-- Logo and Company Info -->
-          <div class="col-2">
-              <div class="footer-logo">
-                  <img src="/assets/images/logo.png" alt="Best Kaam">
-              </div>
-          </div>
-  
-          <!-- Footer Links -->
-          <div class="col-2">
-              <h6 class="fw-bold py-3">Column One</h6>
-              <ul class="footer-links">
-                  <li><a href="#">About us</a></li>
-                  <li><a href="#">Link Two</a></li>
-                  <li><a href="#">Link Three</a></li>
-                  <li><a href="#">Link Four</a></li>
-                  <li><a href="#">Link Five</a></li>
-              </ul>
-          </div>
-  
-          <div class="col-2">
-              <h6 class="fw-bold py-3">Column Two</h6>
-              <ul class="footer-links">
-                  <li><a href="#">Link Six</a></li>
-                  <li><a href="#">Link Seven</a></li>
-                  <li><a href="#">Link Eight</a></li>
-                  <li><a href="#">Link Nine</a></li>
-                  <li><a href="#">Link Ten</a></li>
-              </ul>
-          </div>
-  
-          <div class="col-2">
-              <h6 class="fw-bold py-3">Column Three</h6>
-              <ul class="footer-links">
-                  <li><a href="#">Link Eleven</a></li>
-                  <li><a href="#">Link Twelve</a></li>
-                  <li><a href="#">Link Thirteen</a></li>
-                  <li><a href="#">Link Fourteen</a></li>
-                  <li><a href="#">Link Fifteen</a></li>
-              </ul>
-          </div>
-  
-          <div class="col-4">
-              <h6 class="fw-bold py-3">You can also get us from</h6>
-              <p>Join our newsletter to stay up to date on features and releases.</p>
-              <div class="app-store">
-                  <a href="#"><img src="/assets/images/Google.png" alt="Google Play"></a>
-                  <a href="#"><img src="/assets/images/apple.png" alt="App Store"></a>
-              </div>
-          </div>
-      </div>
-  
-      <div class="row my-4 d-flex flex-nowrap">
-          <div class="col-8 d-flex gap-3">
-              <p>© 2024. All rights reserved.</p>
-              <a href="#" class="text-dark text-decoration-underline">Privacy Policy</a>  
-              <a href="#" class="text-dark text-decoration-underline">Terms of Service</a> 
-              <a href="#" class="text-dark text-decoration-underline">Cookies Settings</a>
-          </div>
-  
-          <div class="col-4 text-end">
-              <div class="social-icons">
-                  <a href="#"><i class="fab fa-facebook"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
-                  <a href="#"><i class="fab fa-youtube"></i></a>
-              </div>
-          </div>
-      </div>
-  </div>
-  </section>
-  
-  <style>
-      .footer-sec {
-          background: #f8f9fa;
-          padding: 40px 0;
-      }
-      .container-fixed {
-          width: 1200px; /* Fixed width */
-          margin: 0 auto;
-      }
-      .row {
-          display: flex;
-          flex-wrap: nowrap; /* Prevents wrapping */
-      }
-      .col-2, .col-4, .col-8 {
-          min-width: 200px; /* Prevents shrinking */
-      }
-      .social-icons a {
-          margin: 0 5px;
-          font-size: 18px;
-          color: black;
-      }
-  </style>
-  
+<!-- Include jQuery and jQuery UI -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+<div class="row">
+    <div class="search-container">
+        <div class="input-group search-bar">
+            <!-- Job Title Input -->
+            <input type="text" id="jobTitle" class="form-control input-field" placeholder="Job Title or Company">
+            
+            <!-- Location Input -->
+            <input type="text" id="jobLocation" class="form-control" placeholder="Location">
+            
+            <button class="search-btn"><i class="fas fa-search icon-color"></i> Search Job</button>
+        </div>
+        <div class="popular-tags">
+            Popular: UI Designer, UX Researcher, Android, Admin
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Job Titles List
+        let jobTitles = ["UI Designer", "UX Researcher", "Android Developer", "Software Engineer", "Product Manager"];
+        
+        // Locations List
+        let jobLocations = ["New York", "San Francisco", "Los Angeles", "Chicago", "Bangalore"];
+
+        // Job Title Autocomplete
+        $("#jobTitle").autocomplete({
+            source: jobTitles
+        }).keyup(function() {
+            $(this).autocomplete("search", $(this).val());
+        });
+
+        // Job Location Autocomplete
+        $("#jobLocation").autocomplete({
+            source: jobLocations
+        }).keyup(function() {
+            $(this).autocomplete("search", $(this).val());
+        });
+    });
+</script>
+
+
+.footer-sec {
+    background: #f8f9fa; /* Light gray background */
+    padding: 40px 0;
+}
+
+/* Footer Logo */
+.footer-logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer Links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: #007bff; /* Highlight effect */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) { 
+    .footer-sec .row > div {
+        text-align: center;
+        padding: 15px 0; /* Adjust padding */
+    }
+
+    .footer-links {
+        display: inline-block;
+        text-align: left;
+    }
+
+    .app-store img {
+        max-width: 120px; /* Adjust app store icons */
+        margin: 5px;
+    }
+}
+
+@media (max-width: 767px) { 
+    .footer-sec .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-sec .row .col-md-2,
+    .footer-sec .row .col-md-4 {
+        width: 100%;
+    }
+
+    .social-icons {
+        justify-content: center;
+        display: flex;
+        gap: 15px;
+    }
+
+    .social-icons a {
+        font-size: 18px;
+    }
+
+    .footer-links {
+        text-align: center;
+    }
+}
+
+/* Copyright & Policies */
+@media (max-width: 575px) { 
+    .footer-sec .row .col-md-6 {
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .footer-sec .row .col-md-3 {
+        text-align: center;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+    }
+}
+
+/* Social Icons */
+.social-icons a {
+    color: #333;
+    font-size: 20px;
+    transition: color 0.3s;
+    margin: 0 10px;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}

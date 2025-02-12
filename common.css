@@ -12,10 +12,21 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 .font-style{
-  font-size: 16px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 24px;
     border-radius: 8px;
+}
+@media (max-width: 360px) {
+  .logo-space{
+    margin: -40px;
+  }
+  .font-style {
+      font-size: 12px;
+  }
+  .handbuger-icon{
+    padding-top: 20px;
+  }
 }
 .discover-tyle{
    color: var(--Neutrals-100, #25324B);
@@ -84,7 +95,7 @@ color: #27e791;
   outline: none;
   box-shadow: none;
   padding: 1rem 1rem;
-  border-right: 2px solid #27e791 !important;
+  border-right: 2px solid #27e791;
 }
   .hiring-style{
     font-size: 50px;
@@ -94,13 +105,35 @@ color: #27e791;
   .sector-card{
     border: 1px solid #32D686;
     border-radius: 16px;
-    color: #000;
+    font-size: 1rem;
+    font-weight: 400;
+   
   }
   .sector-card:hover{
-    /* background: linear-gradient(90deg, #32D686 0%, #92F8C7 100%);  */
-    color: white !important;
-    border: none;
+    background: linear-gradient(to bottom, #6ee7b7, #34d399);
+    color: #ffffff;
   }
+  .sector-card:hover .text-muted {
+    color: #ffffff !important; 
+}
+
+  .bg-icon{
+    background: linear-gradient(to bottom, #6ee7b7, #34d399);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px; 
+    height: 40px; 
+    border-radius: 10px;
+    color: #ffffff;
+  }
+  .job-available{
+    margin-left: 3.6rem;
+  }
+.job-marking{
+  margin-left: 4.5rem;
+}
+
   .navbar {
       background-color: #f8f9fa;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -128,18 +161,7 @@ color: #27e791;
       margin: 0;
   }
     
-    .bg-icon{
-      background-color: #71f1aabd !important;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 40px; 
-      height: 40px; 
-    }
-    .bg-icon:hover{
-      background-color: #d4f6d4 !important;
-      outline: #6e6565;
-    }
+    
     footer a:hover {
       text-decoration: none !important;
     }
@@ -162,11 +184,7 @@ color: #27e791;
     }
     /* new desing */
     .navbar-brand img {
-        height: 40px; /* Logo size */
-      }
-
-      .logo-space{
-        margin-right: 5rem;
+        height: 50px; /* Logo size */
       }
 
       body {
@@ -192,28 +210,10 @@ color: #27e791;
         background: #4ddd748a;
         color: #000;
       }
-      /* .solid-angle i{
-            font-weight: 600;
-            padding-left: 10px;
-            margin-top: 5px;
-      } */
-       /* Card Styling */
-.service-card {
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-  }
+     
   
-  .service-card:hover {
-    background: linear-gradient(135deg, #4caf50, #81c784); /* Green Gradient */
-    transform: translateY(-10px); /* Slight lift effect on hover */
-  }
   
-  .service-icon {
-    font-size: 40px;
-    color: #4caf50;
-    margin-bottom: 15px;
-  }
-  
+ 
   .card-title {
     font-size: 1.25rem;
     font-weight: 600;
@@ -233,18 +233,7 @@ color: #27e791;
     color: #388e3c;
   }
   
-  /* Heading Styling */
-  .services h2 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  
-  .services p {
-    font-size: 1.1rem;
-    color: #6c757d;
-  }
-
+ 
   
   /* logo curosal */
   @keyframes slide{
@@ -449,11 +438,12 @@ color: #27e791;
 }
 
 .footer-logo img {
-  height: 50px;
+  max-width: 100%;
+    height: auto;
 }
 .footer-links {
   list-style: none;
-  padding-left: 10px;
+    padding: 0;
 }
 .footer-links li {
   margin-bottom: 8px;
@@ -462,9 +452,22 @@ color: #27e791;
   text-decoration: none;
   color: #333;
   font-size: 14px;
+  transition: color 0.3s ease-in-out;
 }
 .footer-links a:hover {
   text-decoration: underline;
+  color: #007bff;
+}
+/* Social Icons */
+.social-icons a {
+  color: #333;
+  font-size: 20px;
+  transition: color 0.3s;
+  margin: 0 10px;
+}
+
+.social-icons a:hover {
+  color: #007bff;
 }
 .social-icons a {
   margin: 0 8px;
@@ -481,4 +484,118 @@ color: #27e791;
 .app-store img {
   height: 40px;
   margin-right: 10px;
+}
+/* Responsive Adjustments */
+@media (max-width: 991px) { 
+  .footer-sec .row > div {
+      text-align: center;
+      padding: 15px 0; /* Adjust padding */
+  }
+
+  .footer-links {
+      display: inline-block;
+      text-align: left;
+  }
+
+  .app-store img {
+      max-width: 120px; /* Adjust app store icons */
+      margin: 5px;
+  }
+}
+
+@media (max-width: 767px) { 
+  .footer-sec .row {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .footer-sec .row .col-md-2,
+  .footer-sec .row .col-md-4 {
+      width: 100%;
+  }
+
+  .social-icons {
+      justify-content: center;
+      display: flex;
+      gap: 15px;
+  }
+
+  .social-icons a {
+      font-size: 18px;
+  }
+
+  .footer-links {
+      text-align: center;
+  }
+}
+
+/* Copyright & Policies */
+@media (max-width: 575px) { 
+  .footer-sec .row .col-md-6 {
+      text-align: center;
+      flex-direction: column;
+  }
+
+  .footer-sec .row .col-md-3 {
+      text-align: center;
+  }
+
+  .social-icons {
+      margin-top: 10px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .input-group {
+      flex-direction: column;
+      align-items: stretch;
+  }
+  .input-filed{
+    border-right: 0px;
+  }
+  
+  .input-group .form-control,
+  .search-btn {
+      width: 100%;
+      border-radius:0px;
+      padding: 0.75rem 0.75rem;
+  }
+}
+
+/* Change search icon color on hover */
+.search-btn:hover i {
+  color: white;
+}
+
+/* Style the autocomplete dropdown */
+.ui-autocomplete {
+  background: #ffffff;  /* White background */
+  border: 2px solid #27e791;
+  max-height: 200px;
+  overflow-y: hidden; 
+  overflow-x: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.ui-menu-item {
+  padding: 10px;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+.ui-menu-item:hover {
+  background: #f4f4f4; 
+  color: #000;
+}
+
+.ui-state-active {
+  background: #72e2bd !important;
+  color: #fff !important;
+  border: 2px solid #27e791;
+  border-radius: 6px;
+  padding: 10px 2px;
 }
