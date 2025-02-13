@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #01003f;
+} */
+
+.login-input {
+    position: relative;
+    margin: 20px 0;
+}
+
+.login-input label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    padding: 0 5px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-input input {
+    width: 360px;
+    height: 60px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 15px;
+    background: transparent;
+    border: 1.2px solid rgb(17, 17, 17);
+    outline: none;
+    border-radius:6px !important;
+}
+
+.login-input input:focus~label,
+.login-input input:valid~label {
+    top: 0;
+    font-size: 14px;
+    background: #ffffff;
+}
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+    margin: 20px 0;
+}
+.divider::before, 
+.divider::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid #ddd;
+}
+.divider::before {
+    margin-right: 10px;
+}
+.divider::after {
+    margin-left: 10px;
+}
+.btn-outline-danger:hover {
+    background-color: #ffffff;
+}

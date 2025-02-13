@@ -1,149 +1,110 @@
-<!-- Include jQuery and jQuery UI -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    min-height:100vh;
+    display:grid;
+    place-content:center;
+    font-family:sans-serif;
+    color:#6b6b6b;
+}
+form{
+    width:90vw;
+    max-width:768px;
+    border:1px solid #ddd;
+    padding:3vw;
+    display:flex;
+    flex-direction:column;
+    border-radius:5px;
+}
 
-<div class="row">
-    <div class="search-container">
-        <div class="input-group search-bar">
-            <!-- Job Title Input -->
-            <input type="text" id="jobTitle" class="form-control input-field" placeholder="Job Title or Company">
-            
-            <!-- Location Input -->
-            <input type="text" id="jobLocation" class="form-control" placeholder="Location">
-            
-            <button class="search-btn"><i class="fas fa-search icon-color"></i> Search Job</button>
-        </div>
-        <div class="popular-tags">
-            Popular: UI Designer, UX Researcher, Android, Admin
-        </div>
+label{
+    margin-bottom:15px;
+    position:relative;
+    border-bottom:1px solid #ddd;
+}
+input{
+    width:100%;
+    padding:10px 0px;
+    margin-top:20px;
+    border:none;
+    outline:none;
+}
+input::placeholder{
+    opacity:0;
+}
+span{
+    position:absolute;
+    top:0;
+    left:0;
+    transform:translateY(30px);
+    font-size:0.825em;
+    transition-duration:300ms;
+}
+button{
+    padding:15px 0px; 
+    margin-top:20px;
+    background:purple;
+    color:#fff;
+    border:1px solid purple;
+    cursor:pointer;
+    border-radius:3px;
+}
+
+label:focus-within > span,
+input:not(:placeholder-shown) + span{
+    color:purple;
+    transform:translateY(0px);
+}
+.divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            margin: 20px 0;
+        }
+        .divider::before, 
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-top: 1px solid #ddd;
+        }
+        .divider::before {
+            margin-right: 10px;
+        }
+        .divider::after {
+            margin-left: 10px;
+        }
+</style>
+<body>
+    <div class="register">
+        <form>
+            <label for="name">
+                <input type="text" id="name" placeholder="Name">
+                <span>Name</span>
+            </label>
+            <label for="email">
+                <input type="email" id="email" placeholder="Email">
+                <span>Email</span>
+            </label>
+            <label for="phone">
+                <input type="text" id="phone" placeholder="Phone">
+                <span>Phone</span>
+            </label>
+            <div class="divider">Or login with</div>
+            <button type="button">Register</button>
+        </form>
     </div>
-</div>
-
-<script>
-    $(document).ready(function () {
-        // Job Titles List
-        let jobTitles = ["UI Designer", "UX Researcher", "Android Developer", "Software Engineer", "Product Manager"];
-        
-        // Locations List
-        let jobLocations = ["New York", "San Francisco", "Los Angeles", "Chicago", "Bangalore"];
-
-        // Job Title Autocomplete
-        $("#jobTitle").autocomplete({
-            source: jobTitles
-        }).keyup(function() {
-            $(this).autocomplete("search", $(this).val());
-        });
-
-        // Job Location Autocomplete
-        $("#jobLocation").autocomplete({
-            source: jobLocations
-        }).keyup(function() {
-            $(this).autocomplete("search", $(this).val());
-        });
-    });
-</script>
-
-
-.footer-sec {
-    background: #f8f9fa; /* Light gray background */
-    padding: 40px 0;
-}
-
-/* Footer Logo */
-.footer-logo img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Footer Links */
-.footer-links {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 8px;
-}
-
-.footer-links a {
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
-
-.footer-links a:hover {
-    color: #007bff; /* Highlight effect */
-}
-
-/* Responsive Adjustments */
-@media (max-width: 991px) { 
-    .footer-sec .row > div {
-        text-align: center;
-        padding: 15px 0; /* Adjust padding */
-    }
-
-    .footer-links {
-        display: inline-block;
-        text-align: left;
-    }
-
-    .app-store img {
-        max-width: 120px; /* Adjust app store icons */
-        margin: 5px;
-    }
-}
-
-@media (max-width: 767px) { 
-    .footer-sec .row {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-sec .row .col-md-2,
-    .footer-sec .row .col-md-4 {
-        width: 100%;
-    }
-
-    .social-icons {
-        justify-content: center;
-        display: flex;
-        gap: 15px;
-    }
-
-    .social-icons a {
-        font-size: 18px;
-    }
-
-    .footer-links {
-        text-align: center;
-    }
-}
-
-/* Copyright & Policies */
-@media (max-width: 575px) { 
-    .footer-sec .row .col-md-6 {
-        text-align: center;
-        flex-direction: column;
-    }
-
-    .footer-sec .row .col-md-3 {
-        text-align: center;
-    }
-
-    .social-icons {
-        margin-top: 10px;
-    }
-}
-
-/* Social Icons */
-.social-icons a {
-    color: #333;
-    font-size: 20px;
-    transition: color 0.3s;
-    margin: 0 10px;
-}
-
-.social-icons a:hover {
-    color: #007bff;
-}
+</body>
+</html>
