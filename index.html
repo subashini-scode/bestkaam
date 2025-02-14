@@ -11,13 +11,14 @@
   <link href="assets/css/jquery-ui.css" rel="stylesheet" type="text/css" />
   <script src="assets/js/plugin.js"></script>
   <link rel="stylesheet" href="common.css">
+  <script src="/assets/js/common.js"></script>
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light custom-navbar shadow-sm px-4">
   <div class="container">
-  <a class="navbar-brand logo-space" href="#">
+  <a class="navbar-brand logo-space" href="index.html">
     <img src="assets/images/logo.png" alt="Logo"> <!-- Logo -->
   </a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -29,7 +30,8 @@
 
     <!-- Right Side Buttons -->
     <div class="d-flex align-items-end handbuger-icon">
-      <button class="btn btn-outline-dark me-2 font-style">Login</button>
+      <a href="login.html" class="btn btn-outline-dark me-2 font-style">Login</a>
+      <!-- <button class="btn btn-outline-dark me-2 font-style">Login</button> -->
       <button class="btn btn btn-dark me-3 font-style">Register</button>
 
       <!-- Dropdown Button -->
@@ -1189,11 +1191,6 @@
                 <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-    </div>
-
-    <!-- <div class="footer-bottom text-center">
-        <p>© 2024. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Cookies Settings</a></p>
-    </div> -->
 </div>
 </section>
 </div>
@@ -1212,43 +1209,7 @@
   
 <script>
   $(document).ready(function() {
-      let counted = false;
-      $(window).scroll(function() {
-          let oTop = $('.counter-section').offset().top - window.innerHeight;
-          if (!counted && $(window).scrollTop() > oTop) {
-              $('.counter').each(function() {
-                  let $this = $(this),
-                      countTo = $this.attr('data-count');
-                  $({ countNum: $this.text() }).animate({
-                      countNum: countTo
-                  }, {
-                      duration: 2000,
-                      easing: 'swing',
-                      step: function() {
-                          $this.text(Math.floor(this.countNum));
-                      },
-                      complete: function() {
-                          $this.text(this.countNum);
-                      }
-                  });
-              });
-              counted = true;
-          }
-      });
+    counterEffect();
+    autoCompleteSearch();
   });
-  $(document).ready(function () {
-        
-        let jobTitles = ["UI Designer", "UX Researcher", "Android Developer", "Software Engineer", "Product Manager"];
-        let jobLocations = ["New York", "San Francisco", "Los Angeles", "Chicago", "Bangalore"];
-        $("#jobTitle").autocomplete({
-            source: jobTitles
-        }).keyup(function() {
-            $(this).autocomplete("search", $(this).val());
-        });
-        $("#jobLocation").autocomplete({
-            source: jobLocations
-        }).keyup(function() {
-            $(this).autocomplete("search", $(this).val());
-        });
-    });
 </script>
