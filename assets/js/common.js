@@ -48,12 +48,13 @@ function autoCompleteSearch() {
 
       if (passwordField.type === "password") {
           passwordField.type = "text";
-          eyeIcon.classList.remove("mdi-eye-outline");
-          eyeIcon.classList.add("mdi-eye-off");
-      } else {
-          passwordField.type = "password";
           eyeIcon.classList.remove("mdi-eye-off");
           eyeIcon.classList.add("mdi-eye-outline");
+          
+      } else {
+          passwordField.type = "password";
+          eyeIcon.classList.remove("mdi-eye-outline");
+          eyeIcon.classList.add("mdi-eye-off");
       }
   }
 

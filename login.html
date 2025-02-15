@@ -50,10 +50,11 @@
   
   <div class="bg-white">
       <section class="login">
-          <div class="container login-container min-vh-100">
-              <div class="row align-items-center">
-                  <div class="col-md-6 px-5">
-                      <div class="pb-2 d-flex justify-content-between">
+          <div class="container py-5 empty-continer"></div>
+          <div class="container p-3 login-container">
+              <div class="row align-items-center d-flex justify-content-between gap-3">
+                  <div class="col-md-6 mt-4">
+                      <div class=" d-flex justify-content-between">
                         <h3 class="login-txt">Login</h3>
                           <div class="dropdown nav-padding">
                               <a class="nav-link" href="#" data-bs-toggle="dropdown">
@@ -73,7 +74,7 @@
                         <form  novalidate id="loginForm"   action="#">
                           <div class="input-group login-input">
                               <input type="text" class="w-100"  id="username" required>
-                              <label for="" id="name-label">Username</label>
+                              <label for="" id="name-label">Email</label>
                               <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
                           </div>
                           <div class="input-group login-input ">
@@ -89,7 +90,7 @@
                               <a href="#" class="text-danger">Forgot Password?</a>
                           </div>
                           <div class="mt-5">
-                              <button type="submit"  class="btn  btn-dark btn-lg w-100 ">Sign In</button>
+                              <button type="submit" class="btn btn-dark btn-lg w-100 py-3"style="box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);">Sign In</button>
                           </div>
                         </form>
                         <div class="d-flex justify-content-end pt-4">
@@ -102,12 +103,12 @@
                             <button class="btn btn-outline-dark w-100"><i class='bx bxl-apple font-size-24'></i></button>
                         </div>
                     </div>
-                    <div class="col-md-6 text-center p-5 mt-4">
+                    <div class="col-md-5 text-end mt-3">
                         <img src="/assets/images/login-img.png" alt="Secure Login" class="img-fluid">
                     </div>
                 </div>
         </section>
-        <section class="footer-sec mt-5">
+        <section class="footer-sec p-5 mt-5">
           <div class="container px-4">
             <div class="row">
                 <div class="col-md-2">

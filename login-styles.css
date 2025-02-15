@@ -6,14 +6,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
-    background: #01003f;
-} */
 .login-txt{
     font-size: 2.5rem;
     font-weight: 600;
@@ -39,10 +31,13 @@
     .nav-padding a{
         font-size: 12px;
     }
+    .empty-continer{
+        display: none;
+    }
 }
 .login-input {
     position: relative;
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
 .login-input label {
@@ -59,13 +54,13 @@
 
 .login-input input {
     width: 360px;
-    height: 60px;
+    height: 55px;
     font-size: 16px;
     padding: 0 15px;
     background: transparent;
-    border: 1.2px solid #1C1B1F;
+    border: 1px solid #98FBCB;
     outline: none;
-    border-radius:6px !important;
+    border-radius:4px !important;
 }
 
 .login-input input:focus~label,
@@ -98,8 +93,3 @@
     background-color: #ffffff;
 }
 
-.full-screen {
-    width: 100vw;  /* Full viewport width */
-    height: 100vh; /* Full viewport height */
-    background-color: lightcoral;
-}
