@@ -41,7 +41,7 @@ function autoCompleteSearch() {
     });
 }
 
-
+// passwordToggle
   function togglePassword() {
       let passwordField = document.getElementById("userpassword");
       let eyeIcon = document.getElementById("eyeIcon");
@@ -111,3 +111,43 @@ function autoCompleteSearch() {
           input.classList.add("border-success");
       }
   }
+
+//   resgister progress-bar
+
+function RegprogressBar() {
+    document.addEventListener("DOMContentLoaded", function() {
+        let currentStep = 0;
+        const steps = document.querySelectorAll(".wizard-step");
+        const progressSteps = document.querySelectorAll(".progress-step");
+        const progressBar = document.getElementById("progress-bar");
+        const nextBtns = document.querySelectorAll(".next-btn");
+        const prevBtns = document.querySelectorAll(".prev-btn");
+
+        function updateProgress() {
+            steps.forEach((step, index) => step.classList.toggle("active", index === currentStep));
+            progressSteps.forEach((step, index) => step.classList.toggle("active", index <= currentStep));
+            progressBar.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
+        }
+
+        nextBtns.forEach(btn => btn.addEventListener("click", () => {
+            if (currentStep < steps.length - 1) {
+                currentStep++;
+                updateProgress();
+            }
+        }));
+
+        prevBtns.forEach(btn => btn.addEventListener("click", () => {
+            if (currentStep > 0) {
+                currentStep--;
+                updateProgress();
+            }
+        }));
+
+        document.getElementById("multiStepForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Form submitted successfully!");
+        });
+
+        updateProgress();
+    });
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BESTKAAM </title> 
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script src="assets/js/plugin.js"></script>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="/assets/css/resgister-styles.css">
+    <script src="/assets/js/common.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <!-- <nav class="navbar navbar-expand-lg navbar-light custom-navbar shadow-sm px-4">
+        <div class="container">
+            <a class="navbar-brand logo-space" href="index.html">
+                <img src="assets/images/logo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">  
+                <div class="d-flex align-items-end handbuger-icon">
+                    <a href="login.html" class="btn btn-outline-dark me-2 font-style">Login</a>
+                    
+                    <button class="btn btn btn-dark me-3 font-style">Register</button>
+            
+                    <div class="dropdown px-2 pb-2">
+                    <a class="nav-link font-style " href="#" data-bs-toggle="dropdown">
+                        For employers <i class="dripicons-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item font-style" href="#">Profile</a></li>
+                        <li><a class="dropdown-item font-style" href="#">Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item font-style" href="#">Logout</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav> -->
+    <!-- end Navbar -->
+     <!-- main page -->
+    <div class="bg-white">
+        <div class="container">
+            <div class="row align-items-center d-flex justify-content-between">
+                <div class="col-md-6">
+                    <div class="img-container">
+                        <img src="/assets/images/register-img.png" class="img-fluid" alt="" srcset="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="progress-container">
+                        <div class="progress-line"></div>
+                        <div class="progress-step active"></div>
+                        <div class="progress-step"></div>
+                        <div class="progress-step"></div>
+                    </div>
+                    <form id="multiStepForm">
+                        <div class="wizard-step active">
+                            <h3>Step 1</h3>
+                            <p class="text-center">You're creating an account as?</p>
+                            <div class="d-flex justify-content-center">
+                                <label class="btn btn-outline-success me-2">
+                                    <input type="radio" name="accountType" value="experienced" checked> Experienced
+                                </label>
+                                <label class="btn btn-outline-secondary">
+                                    <input type="radio" name="accountType" value="fresher"> Fresher
+                                </label>
+                            </div>
+                            <div class="upload-area" onclick="document.getElementById('resumeUpload').click()">
+                                <p>Drag your file(s) to start uploading <br> OR <br> Click here</p>
+                                <input type="file" id="resumeUpload" class="d-none" accept=".jpg,.png,.svg,.zip">
+                            </div>
+                           
+                            <button type="button" class="btn btn-primary next-btn">Next</button>
+                        </div>
+                        <div class="wizard-step">
+                            <h3>Step 2</h3>
+                            <button type="button" class="btn btn-secondary prev-btn">Back</button>
+                            <button type="button" class="btn btn-primary next-btn">Next</button>
+                        </div>
+                        <div class="wizard-step">
+                            <h3>Step 3</h3>
+                            <button type="button" class="btn btn-secondary prev-btn">Back</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- <section class="footer-sec mt-5">
+            <div class="container px-4">
+              <div class="row">
+                  <div class="col-md-2">
+                      <div class="footer-logo">
+                          <img src="/assets/images/logo.png" alt="Best Kaam">
+                      </div>
+                  </div>
+                  <div class="col-md-2 ">
+                      <h6 class="fw-bold py-3">Column One</h6>
+                      <ul class="footer-links">
+                          <li><a href="#">About us</a></li>
+                          <li><a href="#">Link Two</a></li>
+                          <li><a href="#">Link Three</a></li>
+                          <li><a href="#">Link Four</a></li>
+                          <li><a href="#">Link Five</a></li>
+                      </ul>
+                  </div>
+          
+                  <div class="col-md-2 ">
+                      <h6 class="fw-bold py-3">Column Two</h6>
+                      <ul class="footer-links">
+                          <li><a href="#">Link Six</a></li>
+                          <li><a href="#">Link Seven</a></li>
+                          <li><a href="#">Link Eight</a></li>
+                          <li><a href="#">Link Nine</a></li>
+                          <li><a href="#">Link Ten</a></li>
+                      </ul>
+                  </div>
+          
+                  <div class="col-md-2 ">
+                      <h6 class="fw-bold py-3">Column Three</h6>
+                      <ul class="footer-links">
+                          <li><a href="#">Link Eleven</a></li>
+                          <li><a href="#">Link Twelve</a></li>
+                          <li><a href="#">Link Thirteen</a></li>
+                          <li><a href="#">Link Fourteen</a></li>
+                          <li><a href="#">Link Fifteen</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-md-4 px-3">
+                    <h6 class="fw-bold py-3">You can also get us from</h6>
+                    <p>Join our newsletter to stay up to date on features and releases.</p>
+                    <div class="app-store mt-2">
+                        <a href="#"><img src="/assets/images/Google.png" alt="Google Play"></a>
+                        <a href="#"><img src="/assets/images/apple.png" alt="App Store"></a>
+                    </div>
+                </div>
+          
+              </div>
+          
+              <div class="row my-4">
+                  <div class="col-md-6 d-flex gap-3 py-3">
+                    <p >© 2024. All rights reserved.</p>
+                      <a href="#" class="text-dark text-decoration-underline"> Privacy Policy</a>  
+                      <a href="#" class="text-dark text-decoration-underline">Terms of Service</a> 
+                      <a href="#" class="text-dark text-decoration-underline">Cookies Settings</a>
+                  </div>
+                  <div class="col-3"></div>
+                  <div class="col-md-3">
+                      <div class="social-icons text-end py-3">
+                          <a href="#"><i class="fab fa-facebook"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-linkedin"></i></a>
+                          <a href="#"><i class="fab fa-youtube"></i></a>
+                      </div>
+                  </div>
+          </div>
+        </section> -->
+    </div>
+
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+    <script src="assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
+    <script src="assets/js/pages/form-wizard.init.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+        RegprogressBar();
+    </script>
+</body>
+</html>

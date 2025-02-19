@@ -2,179 +2,114 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google-Style Validation with Success</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form Wizard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .input-group {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .input-group input {
+        .progress-container {
+            display: flex;
+            justify-content: space-between;
             width: 100%;
-            padding: 12px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border 0.3s, box-shadow 0.3s;
+            max-width: 400px;
+            position: relative;
+            margin: 20px auto;
         }
-
-        .input-group label {
+        .progress-line {
             position: absolute;
             top: 50%;
-            left: 12px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #ccc;
+            z-index: 0;
             transform: translateY(-50%);
-            background: white;
-            padding: 0 5px;
-            font-size: 16px;
-            color: #888;
-            transition: all 0.3s;
         }
-
-        .input-group input:focus + label,
-        .input-group input:not(:placeholder-shown) + label {
-            top: 0;
-            left: 10px;
-            font-size: 12px;
-            color: #555;
+        .progress-step {
+            width: 20px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+            border: 4px solid transparent;
         }
-
-        /* Error state */
-        .input-group input.border-danger {
-            border: 2px solid red !important;
+        .progress-step.active {
+            background-color: #000;
+            border: 4px solid #fff;
+            box-shadow: 0 0 0 2px black;
         }
-
-        .input-group input.border-danger + label {
-            color: red;
-        }
-
-        .error-message {
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-            color: red;
-            margin-top: 5px;
+        .wizard-step {
             display: none;
         }
-
-        .error-message i {
-            margin-right: 5px;
-        }
-
-        /* Success state */
-        .input-group input.border-success {
-            border: 2px solid green !important;
-        }
-
-        .success-message {
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-            color: green;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .success-message i {
-            margin-right: 5px;
+        .wizard-step.active {
+            display: block;
         }
     </style>
 </head>
-<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
+<body>
 
-    <div class="card p-4 shadow-sm" style="width: 400px;">
-        <h3 class="text-center mb-4">Sign In</h3>
-        <form id="loginForm" action="#" novalidate>
-            
-            <!-- Email or Phone Input -->
-            <div class="input-group">
-                <input type="text" id="username" name="username" placeholder=" " class="form-control">
-                <label for="username">Email or phone</label>
-                <div class="error-message" id="usererr">
-                    <i class="bi bi-exclamation-circle"></i> Enter an email or phone number
-                </div>
-                <div class="success-message" id="usersuccess">
-                    <i class="bi bi-check-circle"></i> Looks good!
-                </div>
-            </div>
-
-            <!-- Password Input -->
-            <div class="input-group">
-                <input type="password" id="password" name="password" placeholder=" " class="form-control">
-                <label for="password">Password</label>
-                <div class="error-message" id="passerr">
-                    <i class="bi bi-exclamation-circle"></i> Enter your password
-                </div>
-                <div class="success-message" id="passsuccess">
-                    <i class="bi bi-check-circle"></i> Looks good!
-                </div>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-dark btn-lg w-100">Next</button>
-        </form>
+<div class="container mt-5">
+    <div class="progress-container">
+        <div class="progress-line"></div>
+        <div class="progress-step active"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
     </div>
+    <form id="multiStepForm">
+        <div class="wizard-step active">
+            <h3>Step 1</h3>
+            <button type="button" class="btn btn-primary next-btn">Next</button>
+        </div>
+        <div class="wizard-step">
+            <h3>Step 2</h3>
+            <button type="button" class="btn btn-secondary prev-btn">Back</button>
+            <button type="button" class="btn btn-primary next-btn">Next</button>
+        </div>
+        <div class="wizard-step">
+            <h3>Step 3</h3>
+            <button type="button" class="btn btn-secondary prev-btn">Back</button>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+</div>
 
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent form submission
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let currentStep = 0;
+        const steps = document.querySelectorAll(".wizard-step");
+        const progressSteps = document.querySelectorAll(".progress-step");
+        const progressBar = document.getElementById("progress-bar");
+        const nextBtns = document.querySelectorAll(".next-btn");
+        const prevBtns = document.querySelectorAll(".prev-btn");
 
-            const username = document.getElementById("username");
-            const password = document.getElementById("password");
+        function updateProgress() {
+            steps.forEach((step, index) => step.classList.toggle("active", index === currentStep));
+            progressSteps.forEach((step, index) => step.classList.toggle("active", index <= currentStep));
+            progressBar.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
+        }
 
-            let isValid = true;
-
-            // Username Validation
-            if (username.value.trim() === "") {
-                setError(username, "usererr", "usersuccess");
-                isValid = false;
-            } else {
-                setSuccess(username, "usererr", "usersuccess");
+        nextBtns.forEach(btn => btn.addEventListener("click", () => {
+            if (currentStep < steps.length - 1) {
+                currentStep++;
+                updateProgress();
             }
+        }));
 
-            // Password Validation
-            if (password.value.trim() === "") {
-                setError(password, "passerr", "passsuccess");
-                isValid = false;
-            } else {
-                setSuccess(password, "passerr", "passsuccess");
+        prevBtns.forEach(btn => btn.addEventListener("click", () => {
+            if (currentStep > 0) {
+                currentStep--;
+                updateProgress();
             }
+        }));
 
-            if (isValid) {
-                alert("Form submitted successfully!");
-            }
+        document.getElementById("multiStepForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Form submitted successfully!");
         });
 
-        // Function to show error messages and highlight input in red
-        function setError(input, errorId, successId) {
-            let errorDisplay = document.getElementById(errorId);
-            let successDisplay = document.getElementById(successId);
-            
-            errorDisplay.style.display = "flex";  // Show error message
-            successDisplay.style.display = "none"; // Hide success message
-            
-            input.classList.remove("border-success");
-            input.classList.add("border-danger");
-        }
-
-        // Function to show success message and highlight input in green
-        function setSuccess(input, errorId, successId) {
-            let errorDisplay = document.getElementById(errorId);
-            let successDisplay = document.getElementById(successId);
-            
-            errorDisplay.style.display = "none";  // Hide error message
-            successDisplay.style.display = "flex"; // Show success message
-            
-            input.classList.remove("border-danger");
-            input.classList.add("border-success");
-        }
-    </script>
+        updateProgress();
+    });
+</script>
 
 </body>
 </html>
