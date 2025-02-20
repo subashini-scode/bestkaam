@@ -53,7 +53,7 @@
 }
 
 .login-input input {
-    width: 360px;
+    min-width: 360px;
     height: 55px;
     font-size: 16px;
     padding: 0 15px;

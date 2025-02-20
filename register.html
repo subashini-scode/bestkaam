@@ -14,10 +14,12 @@
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="/assets/css/resgister-styles.css">
     <script src="/assets/js/common.js"></script>
+    <link rel="stylesheet" href="login-styles.css">
+    
 </head>
 <body>
     <!-- Navbar -->
-    <!-- <nav class="navbar navbar-expand-lg navbar-light custom-navbar shadow-sm px-4">
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar shadow-sm px-4">
         <div class="container">
             <a class="navbar-brand logo-space" href="index.html">
                 <img src="assets/images/logo.png" alt="Logo">
@@ -45,56 +47,234 @@
                 </div>
             </div>
         </div>
-    </nav> -->
+    </nav> 
     <!-- end Navbar -->
      <!-- main page -->
     <div class="bg-white">
-        <div class="container">
-            <div class="row align-items-center d-flex justify-content-between">
-                <div class="col-md-6">
-                    <div class="img-container">
-                        <img src="/assets/images/register-img.png" class="img-fluid" alt="" srcset="">
-                    </div>
+        <div class="container p-3">
+            <div class="row  d-flex justify-content-between">
+                <div class="col-md-5 text-end mt-3">
+                    <img src="/assets/images/register-img.png" alt="Secure Login" class="img-fluid">
                 </div>
-                <div class="col-md-6">
-                    <div class="progress-container">
-                        <div class="progress-line"></div>
-                        <div class="progress-step active"></div>
-                        <div class="progress-step"></div>
-                        <div class="progress-step"></div>
+                <div class="col-md-6 p-2">
+                    <div class=" d-flex justify-content-center">
+                        <div class="progress-container">
+                            <div class="progress-line"></div>
+                            <div class="progress-step active"></div>
+                            <div class="progress-step"></div>
+                            <div class="progress-step"></div>
+                        </div>
+                        
                     </div>
                     <form id="multiStepForm">
                         <div class="wizard-step active">
-                            <h3>Step 1</h3>
-                            <p class="text-center">You're creating an account as?</p>
-                            <div class="d-flex justify-content-center">
-                                <label class="btn btn-outline-success me-2">
-                                    <input type="radio" name="accountType" value="experienced" checked> Experienced
+                            <h3>Create Profile</h3>
+                            <p>Let’s get you all st up so you can access your personal account.</p>
+                            <div class="divider py-3">Sign up with</div>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-outline-primary w-100"><i class='bx bxl-facebook-circle font-size-24'></i></button>
+                                <button class="btn btn-outline-primary w-100"><img src="/assets/svgs/google-icon.svg" height="20" width="20" alt="" srcset=""></button>
+                                <button class="btn btn-outline-dark w-100"><i class='bx bxl-apple font-size-24'></i></button>
+                            </div>
+                            <p class="pt-4 pb-2">You’re creating an account as?</p>
+                            <div class="d-flex justify-content-start">
+                                <label class="btn btn-outline-success w-100 me-3 d-flex align-items-center gap-2 p-3 px-4 accountType">
+                                    <input type="radio" name="accountType" value="experienced" class="me-2" checked>
+                                    <span>As a experienced</span>
                                 </label>
-                                <label class="btn btn-outline-secondary">
-                                    <input type="radio" name="accountType" value="fresher"> Fresher
+                                <label class="btn btn-outline-success  w-100 d-flex align-items-center gap-2 p-3 px-4 accountType">
+                                    <input type="radio" name="accountType" value="fresher" class="me-2">
+                                    <span>As a fresher</span>
                                 </label>
                             </div>
-                            <div class="upload-area" onclick="document.getElementById('resumeUpload').click()">
-                                <p>Drag your file(s) to start uploading <br> OR <br> Click here</p>
-                                <input type="file" id="resumeUpload" class="d-none" accept=".jpg,.png,.svg,.zip">
+                            <div class="upload-area mt-5">
+                                <h3>Upload resume</h3>
+                                <p class="pb-3">Only support .jpg, .png and .svg and zip files</p>
+                                <div class="upload-btn" onclick="document.getElementById('resumeUpload').click()">
+                                    <img src="/assets/svgs/upload-svg.svg" class="img-fluid" alt="" srcset="">
+                                    <p class="py-3">Drag your file(s) to start uploading <br>  
+                                        <div class="or-divider d-flex align-items-center text-center justify-content-center">OR</div> 
+                                        <br> <button class="btn btn-dark waves-effect waves-light">browse files</button></p>
+                                    <input type="file" id="resumeUpload" class="d-none" accept=".jpg,.png,.svg,.zip">
+                                </div>
                             </div>
-                           
-                            <button type="button" class="btn btn-primary next-btn">Next</button>
+                            <div class="row pt-3">
+                                <div class="col-md-6">
+                                    <div class="reg-input">
+                                        <input type="text" class=""  id="username" required>
+                                        <label for="" id="name-label">First Name</label>
+                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="reg-input">
+                                        <input type="text" class=""  id="username" required>
+                                        <label for="" id="name-label">Last Name</label>
+                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="reg-input">
+                                        <input type="text" class=""  id="username" required>
+                                        <label for="" id="name-label">Email</label>
+                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="reg-input">
+                                        <input type="text" class=""  id="username" required>
+                                        <label for="" id="name-label">Phone Number</label>
+                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group login-input ">
+                                <input type="password"  id="userpassword" class="w-100" required>
+                                <label for="" id="pass-label">Password</label>
+                                <span class="position-absolute top-50 end-0 translate-middle-y me-3" onclick="togglePassword()" style="cursor: pointer;">
+                                  <i class="font-size-24 mdi mdi-eye-outline" id="eyeIcon"></i>                        
+                                </span>
+                                <div class="invalid-feedback" id="passerr">Please Enter Password</div>
+                            </div>
+                            <div class="input-group login-input ">
+                                <input type="password"  id="userpassword" class="w-100" required>
+                                <label for="" id="pass-label">ConfirmPassword</label>
+                                <span class="position-absolute top-50 end-0 translate-middle-y me-3" onclick="togglePassword()" style="cursor: pointer;">
+                                  <i class="font-size-24 mdi mdi-eye-outline" id="eyeIcon"></i>                        
+                                </span>
+                                <div class="invalid-feedback" id="passerr">Please Enter Password</div>
+                            </div>
+                            <div class="d-flex">
+                                <div><input type="checkbox"> I agree to all the </div>
+                                <a href="#" class="text-dark text-decoration-underline mx-2"> Terms </a> 
+                                <span class="">and</span> 
+                                <a href="#" class="text-dark text-decoration-underline mx-2"> Privacy Policies</a>
+                            </div>
+                            <div class="mt-5">
+                                <button type="submit" class="btn btn-dark btn-lg w-100 py-3 next-btn"style="box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);">Next</button>
+                            </div>
+                            <p class="text-center my-3">Already have an account? 
+                                <a href="#" class="text-dark text-decoration-underline">Login</a></p>
                         </div>
                         <div class="wizard-step">
-                            <h3>Step 2</h3>
-                            <button type="button" class="btn btn-secondary prev-btn">Back</button>
-                            <button type="button" class="btn btn-primary next-btn">Next</button>
+                            <div class="d-flex justify-content-between">
+                                <h3>Step 2</h3>
+                                <a href="#" class="text-dark d-flex align-items-center gap-1">
+                                    Skip <i class="bx bx-chevrons-right font-size-30"></i>
+                                </a>                            </div>
+                            <p class="py-3">Let’s get you all st up so you can access your personal account.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="reg-input">
+                                        <input type="text" class=""  id="username" required>
+                                        <label for="" id="name-label">Address 1</label>
+                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="reg-input">
+                                        <input type="text" class=""  id="username" required>
+                                        <label for="" id="name-label">Address 2</label>
+                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="reg-input">
+                                        <input type="text" class=""  id="username" required>
+                                        <label for="" id="name-label">Current Location</label>
+                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="reg-input">
+                                        <input type="text" class=""  id="username" required>
+                                        <label for="" id="name-label">State</label>
+                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="reg-input">
+                                        <input type="text" class=""  id="username" required>
+                                        <label for="" id="name-label">Zip code</label>
+                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="reg-input">
+                                        <input type="text" class=""  id="username" required>
+                                        <label for="" id="name-label">Country</label>
+                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div><input type="checkbox"> I agree to all the </div>
+                                <a href="#" class="text-dark text-decoration-underline mx-2"> Terms </a> 
+                                <span class="">and</span> 
+                                <a href="#" class="text-dark text-decoration-underline mx-2"> Privacy Policies</a>
+                            </div>
+                            <div class="mt-5">
+                                <button type="submit" class="btn btn-dark btn-lg w-100 py-3 next-btn"style="box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);">Next</button>
+                            </div>
+                            <p class="text-center my-3">Already have an account? 
+                                <a href="#" class="text-dark text-decoration-underline">Login</a></p>
                         </div>
                         <div class="wizard-step">
-                            <h3>Step 3</h3>
-                            <button type="button" class="btn btn-secondary prev-btn">Back</button>
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <div class="d-flex justify-content-between">
+                                <h2>Step 3</h3>
+                                <a href="#" class="text-dark d-flex align-items-center gap-1">
+                                    Skip <i class="bx bx-chevrons-right font-size-30"></i>
+                                </a>                            </div>
+                            <p class="py-3">Let’s get you all st up so you can access your personal account.</p>
+                            <div class="my-2">
+                                <label class="form-label">Summary (Optional)</label>
+                                <textarea class="form-control" maxlength="300" rows="3" placeholder="Enter additional information"></textarea>
+                                <small class="text-muted d-block text-end">0/600</small>
+                            </div>
+                            <h5>Expected Salary</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="reg-input">
+                                        <input type="text" class=""  id="username" required>
+                                        <label for="" id="name-label">Minimum</label>
+                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="reg-input">
+                                        <input type="text" class=""  id="username" required>
+                                        <label for="" id="name-label">Maximum</label>
+                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="login-input">
+                                <input type="text" class="w-100"  id="username" required>
+                                <label for="" id="name-label">Language Known</label>
+                                <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                            </div>
+                                <div class="login-input">
+                                    <input type="text" class="w-100"  id="username" required>
+                                    <label for="" id="name-label">List your Skills</label>
+                                    <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                </div>
+                             <div class="mt-5">
+                                <button type="submit" class="btn btn-dark btn-lg w-100 py-3"style="box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);">Get Started</button>
+                            </div>
+                            <p class="text-center my-3">Already have an account? 
+                                <a href="#" class="text-dark text-decoration-underline">Login</a></p>
                         </div>
                     </form>
+                    
                 </div>
             </div>
+            
         </div>
         <!-- <section class="footer-sec mt-5">
             <div class="container px-4">
@@ -178,6 +358,15 @@
     <script src="assets/js/app.js"></script>
     <script>
         RegprogressBar();
+        document.querySelectorAll('.accountType').forEach(label => {
+            label.addEventListener('click', function () {
+                document.querySelectorAll('.accountType').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                this.querySelector('input[type="radio"]').checked = true;
+            });
+        });
     </script>
 </body>
 </html>

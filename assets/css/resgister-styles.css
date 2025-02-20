@@ -4,13 +4,17 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+:root {
+    --shadowop1: rgba(0, 0, 0, 0.1);  /* Define your shadow colors */
+    --shadowop2: rgba(0, 0, 0, 0.15);
+}
 .progress-container {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     position: relative;
-    margin: 20px auto;
+    margin: 10px auto;
 }
 .progress-line {
     position: absolute;
@@ -42,12 +46,89 @@
 .wizard-step.active {
     display: block;
 }
-.upload-area {
-    border: 2px dashed #ccc;
+.upload-area{
+    /* width: 640px;
+    height: 298px;  */
+    gap: 16px;
+    border-radius: 16px; /* Equivalent to 'radi/xl' */
+    padding: 24px;
+    box-shadow: 0px 4px 6px 0px var(--shadowop1), 
+    0px 4px 50px 0px var(--shadowop2);
+}
+.upload-btn {    
+    border: 2px dashed #32D686;
     padding: 20px;
     text-align: center;
     cursor: pointer;
+    border-radius: 5px;
 }
 .upload-area:hover {
     background: #f8f9fa;
 }
+.accountType{
+    border: 1px solid #CBCAD7;
+    border-radius: 8px;
+    color: #49475A;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+.accountType.active {
+    background-color: #e6fff2 !important;
+    border: 1px solid #98FBCB33 !important; 
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #232121;
+}
+
+.accountType input[type="radio"] {
+    accent-color: #191d1a;
+    transform: scale(1.2); 
+}
+.or-divider::before, .or-divider::after {
+    content: "";
+    flex: 0.2;
+    border-bottom: 1px solid #ddd;
+    margin: 0 5px;
+}
+
+.reg-input {
+    position: relative;
+    margin: 10px 0;
+}
+
+.reg-input label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color:#1C1B1F;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.reg-input input {
+    width: 260px;
+    height: 55px;
+    font-size: 16px;
+    padding: 0 15px;
+    background: transparent;
+    border: 1px solid #79747E;
+    outline: none;
+    border-radius:4px !important;
+}
+
+.reg-input input:focus~label,
+.reg-input input:valid~label {
+    top: 0;
+    font-size: 14px;
+    background: #ffffff;
+}
+.font-size-30{
+    font-size: 30px;
+}
+
