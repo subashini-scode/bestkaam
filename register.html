@@ -52,19 +52,24 @@
      <!-- main page -->
     <div class="bg-white">
         <div class="container p-3">
-            <div class="row  d-flex justify-content-between">
-                <div class="col-md-5 text-end mt-3">
+            <div class="row d-flex justify-content-between">
+                <div class="col-md-6 text-center my-5 gap-2">
                     <img src="/assets/images/register-img.png" alt="Secure Login" class="img-fluid">
                 </div>
                 <div class="col-md-6 p-2">
-                    <div class=" d-flex justify-content-center">
-                        <div class="progress-container">
+                    <div class="">
+                        <!-- <div class="progress-container">
                             <div class="progress-line"></div>
                             <div class="progress-step active"></div>
                             <div class="progress-step"></div>
                             <div class="progress-step"></div>
+                        </div> -->
+                        <div class="progress-container my-4" data-progress="1">
+                            <div class="progress-line"></div>
+                            <div class="progress-step active" data-step="1"></div>
+                            <div class="progress-step" data-step="2"></div>
+                            <div class="progress-step" data-step="3"></div>
                         </div>
-                        
                     </div>
                     <form id="multiStepForm">
                         <div class="wizard-step active">
@@ -98,7 +103,7 @@
                                     <input type="file" id="resumeUpload" class="d-none" accept=".jpg,.png,.svg,.zip">
                                 </div>
                             </div>
-                            <div class="row pt-3">
+                            <div class="row pt-5">
                                 <div class="col-md-6">
                                     <div class="reg-input">
                                         <input type="text" class=""  id="username" required>
@@ -130,7 +135,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="input-group login-input ">
+                            
+                            <div class="reg-input ">
                                 <input type="password"  id="userpassword" class="w-100" required>
                                 <label for="" id="pass-label">Password</label>
                                 <span class="position-absolute top-50 end-0 translate-middle-y me-3" onclick="togglePassword()" style="cursor: pointer;">
@@ -138,7 +144,7 @@
                                 </span>
                                 <div class="invalid-feedback" id="passerr">Please Enter Password</div>
                             </div>
-                            <div class="input-group login-input ">
+                            <div class="reg-input">
                                 <input type="password"  id="userpassword" class="w-100" required>
                                 <label for="" id="pass-label">ConfirmPassword</label>
                                 <span class="position-absolute top-50 end-0 translate-middle-y me-3" onclick="togglePassword()" style="cursor: pointer;">
@@ -153,7 +159,7 @@
                                 <a href="#" class="text-dark text-decoration-underline mx-2"> Privacy Policies</a>
                             </div>
                             <div class="mt-5">
-                                <button type="submit" class="btn btn-dark btn-lg w-100 py-3 next-btn"style="box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);">Next</button>
+                                <button type="button" onclick="nextStep()" class="btn btn-dark btn-lg w-100 py-3 next-btn"style="box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);">Next</button>
                             </div>
                             <p class="text-center my-3">Already have an account? 
                                 <a href="#" class="text-dark text-decoration-underline">Login</a></p>
@@ -184,9 +190,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="reg-input">
-                                        <input type="text" class=""  id="username" required>
-                                        <label for="" id="name-label">Current Location</label>
-                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                        <select id="userLoaction" required>
+                                            <option value="" disabled selected></option>
+                                            <option value="admin">Chennai</option>
+                                            <option value="user">Cuddalore</option>
+                                            <option value="manager">Pondy</option>
+                                        </select>
+                                        <label for="userLoaction">Current Location</label>
+                                        <div class="invalid-feedback" id="roleError">Please select a role</div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -220,7 +231,7 @@
                                 <a href="#" class="text-dark text-decoration-underline mx-2"> Privacy Policies</a>
                             </div>
                             <div class="mt-5">
-                                <button type="submit" class="btn btn-dark btn-lg w-100 py-3 next-btn"style="box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);">Next</button>
+                                <button type="button" onclick="nextStep()" class="btn btn-dark btn-lg w-100 py-3 next-btn"style="box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);">Next</button>
                             </div>
                             <p class="text-center my-3">Already have an account? 
                                 <a href="#" class="text-dark text-decoration-underline">Login</a></p>
@@ -234,38 +245,61 @@
                             <p class="py-3">Let’s get you all st up so you can access your personal account.</p>
                             <div class="my-2">
                                 <label class="form-label">Summary (Optional)</label>
-                                <textarea class="form-control" maxlength="300" rows="3" placeholder="Enter additional information"></textarea>
+                                <textarea class="form-control textarea" maxlength="300" rows="3" placeholder="Enter additional information"></textarea>
                                 <small class="text-muted d-block text-end">0/600</small>
                             </div>
                             <h5>Expected Salary</h5>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="reg-input">
-                                        <input type="text" class=""  id="username" required>
-                                        <label for="" id="name-label">Minimum</label>
-                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                    <div class="ctc-container">
+                                        <label class="ctclabel">Minimum</label>
+                                        <select class="currency-select">
+                                            <option value="INR">₹</option>
+                                            <option value="USD">$</option>
+                                            <option value="EUR">€</option>
+                                        </select>
+                                        <input type="number" class="amount-input" value="3.5">
+                                        <select class="ctc-select">
+                                            <option value="CTC">CTC</option>
+                                            <option value="LPA">LPA</option>
+                                            <option value="K">K</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="reg-input">
-                                        <input type="text" class=""  id="username" required>
-                                        <label for="" id="name-label">Maximum</label>
-                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                    <div class="ctc-container">
+                                        <label class="ctclabel">Maximum</label>
+                                        <select class="currency-select">
+                                            <option value="INR">₹</option>
+                                            <option value="USD">$</option>
+                                            <option value="EUR">€</option>
+                                        </select>
+                                        <input type="number" class="amount-input" value="3.5">
+                                        <select class="ctc-select">
+                                            <option value="CTC">CTC</option>
+                                            <option value="LPA">LPA</option>
+                                            <option value="K">K</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-                            <div class="login-input">
-                                <input type="text" class="w-100"  id="username" required>
-                                <label for="" id="name-label">Language Known</label>
-                                <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                            <div class="lag-container">
+                                <label class="ctclabel">Language Known</label>
+                                <input type="text" class="amount-input w-100" value="English">
+                                <select class="ctc-select">
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Senior">Senior</option>
+                                </select>
                             </div>
-                                <div class="login-input">
-                                    <input type="text" class="w-100"  id="username" required>
+                                <div class="reg-input">
+                                    <input type="text"  id="skills"  class="w-100"  id="username" required>
                                     <label for="" id="name-label">List your Skills</label>
                                     <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
                                 </div>
+                                <div class="tags-container d-flex flex-wrap" id="tagsContainer"></div>
                              <div class="mt-5">
-                                <button type="submit" class="btn btn-dark btn-lg w-100 py-3"style="box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);">Get Started</button>
+                                <button type="button" onclick="nextStep()" class="btn btn-dark btn-lg w-100 py-3"style="box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);">Get Started</button>
                             </div>
                             <p class="text-center my-3">Already have an account? 
                                 <a href="#" class="text-dark text-decoration-underline">Login</a></p>
@@ -276,7 +310,7 @@
             </div>
             
         </div>
-        <!-- <section class="footer-sec mt-5">
+        <section class="footer-sec mt-5">
             <div class="container px-4">
               <div class="row">
                   <div class="col-md-2">
@@ -345,7 +379,7 @@
                       </div>
                   </div>
           </div>
-        </section> -->
+        </section>
     </div>
 
     <script src="assets/libs/jquery/jquery.min.js"></script>
@@ -357,7 +391,6 @@
     <script src="assets/js/pages/form-wizard.init.js"></script>
     <script src="assets/js/app.js"></script>
     <script>
-        RegprogressBar();
         document.querySelectorAll('.accountType').forEach(label => {
             label.addEventListener('click', function () {
                 document.querySelectorAll('.accountType').forEach(btn => {
@@ -367,6 +400,65 @@
                 this.querySelector('input[type="radio"]').checked = true;
             });
         });
+
+        // prgressBar
+        let currentStep = 1;
+        const totalSteps = document.querySelectorAll(".progress-step").length;
+        const progressContainer = document.querySelector(".progress-container");
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateProgress();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateProgress();
+            }
+        }
+        function updateProgress() {
+        document.querySelectorAll(".progress-step").forEach((step, index) => {
+        step.classList.toggle("active", index < currentStep);
+            });
+            progressContainer.setAttribute("data-progress", currentStep);
+            document.querySelectorAll(".wizard-step").forEach((step, index) => {
+                step.classList.toggle("active", index + 1 === currentStep);
+            });
+        }
+
+        // skiles tag
+        const input = document.getElementById("skills");
+        const tagsContainer = document.getElementById("tagsContainer");
+        let skills = [];
+
+        input.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" && input.value.trim() !== "") {
+                event.preventDefault();
+                let skill = input.value.trim();
+                if (!skills.includes(skill)) {
+                    skills.push(skill);
+                    renderTags();
+                }
+                input.value = "";
+            }
+        });
+
+        function renderTags() {
+            tagsContainer.innerHTML = "";
+            skills.forEach((skill, index) => {
+                let tag = document.createElement("div");
+                tag.classList.add("tag");
+                tag.innerHTML = `${skill} <button onclick="removeTag(${index})">&times;</button>`;
+                tagsContainer.appendChild(tag);
+            });
+        }
+
+        function removeTag(index) {
+            skills.splice(index, 1);
+            renderTags();
+        }
     </script>
 </body>
 </html>
