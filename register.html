@@ -106,38 +106,38 @@
                             <div class="row pt-5">
                                 <div class="col-md-6">
                                     <div class="reg-input">
-                                        <input type="text" class=""  id="username" required>
+                                        <input type="email" class="" name="firstname"  id="firstname" required>
                                         <label for="" id="name-label">First Name</label>
-                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                        <div class="invalid-feedback" id="firstName">Please Enter Email id</div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="reg-input">
-                                        <input type="text" class=""  id="username" required>
+                                        <input type="text" class="" name="lastname"  id="lastname" required>
                                         <label for="" id="name-label">Last Name</label>
-                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                        <div class="invalid-feedback" id="lastName">Please Enter Username</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="reg-input">
-                                        <input type="text" class=""  id="username" required>
+                                        <input type="email" class="" name="email_id" id="email-id" required>
                                         <label for="" id="name-label">Email</label>
-                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                        <div class="invalid-feedback" id="emailId">Please Enter Username</div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="reg-input">
-                                        <input type="text" class=""  id="username" required>
+                                        <input type="text" class="" name="phone_number"  id="username" required>
                                         <label for="" id="name-label">Phone Number</label>
-                                        <div class="invalid-feedback" id="usersuccess">Please Enter Username</div>
+                                        <div class="invalid-feedback" id="phnNumber">Please Enter Username</div>
                                     </div>
                                 </div>
                             </div>
                             
                             <div class="reg-input ">
-                                <input type="password"  id="userpassword" class="w-100" required>
+                                <input type="password" name="password"  id="userpassword" class="w-100" required>
                                 <label for="" id="pass-label">Password</label>
                                 <span class="position-absolute top-50 end-0 translate-middle-y me-3" onclick="togglePassword()" style="cursor: pointer;">
                                   <i class="font-size-24 mdi mdi-eye-outline" id="eyeIcon"></i>                        
@@ -145,7 +145,7 @@
                                 <div class="invalid-feedback" id="passerr">Please Enter Password</div>
                             </div>
                             <div class="reg-input">
-                                <input type="password"  id="userpassword" class="w-100" required>
+                                <input type="password"  id="confirmpassword" class="w-100" required>
                                 <label for="" id="pass-label">ConfirmPassword</label>
                                 <span class="position-absolute top-50 end-0 translate-middle-y me-3" onclick="togglePassword()" style="cursor: pointer;">
                                   <i class="font-size-24 mdi mdi-eye-outline" id="eyeIcon"></i>                        
@@ -381,7 +381,6 @@
           </div>
         </section>
     </div>
-
     <script src="assets/libs/jquery/jquery.min.js"></script>
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/metismenu/metisMenu.min.js"></script>
@@ -391,6 +390,17 @@
     <script src="assets/js/pages/form-wizard.init.js"></script>
     <script src="assets/js/app.js"></script>
     <script>
+        document.getElementById('resumeUpload').addEventListener('change', function () {
+            let uploadBtn = document.querySelector('.upload-btn');
+            console.log(uploadBtn);
+            
+            if (this.classList.contains('is-invalid')) {
+                uploadBtn.classList.add('error');
+            } else {
+                uploadBtn.classList.remove('error');
+            }
+        });
+
         document.querySelectorAll('.accountType').forEach(label => {
             label.addEventListener('click', function () {
                 document.querySelectorAll('.accountType').forEach(btn => {
