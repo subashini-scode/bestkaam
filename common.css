@@ -210,10 +210,6 @@ color: #27e791;
         background: #4ddd748a;
         color: #000;
       }
-     
-  
-  
- 
   .card-title {
     font-size: 1.25rem;
     font-weight: 600;
@@ -232,9 +228,6 @@ color: #27e791;
   .card-link:hover {
     color: #388e3c;
   }
-  
- 
-  
   /* logo curosal */
   @keyframes slide{
     from{
@@ -598,4 +591,62 @@ color: #27e791;
   border: 2px solid #27e791;
   border-radius: 6px;
   padding: 10px 2px;
+}
+
+/* dashboard styles */
+.bg-purple{
+  background: #DD36AB;
+  font-size: 8px;
+}
+
+.noti-icon i{
+  color:#98fbcb; 
+  font-size: 30px;
+}
+
+.header-btn{
+  height: auto;
+  border: 1px solid #0049FC;
+  margin-top: 0.7rem;
+  padding: revert;
+}
+
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  background: #28a745; 
+  border-radius: 50%;
+  border: 2px solid white;
+  position: absolute;
+  bottom: 2px;
+  left: 78%;
+  transform: translateX(-50%);
+}
+.large-status-indicator{
+  width: 15px;
+  height: 15px;
+  background: #28a745; 
+  border-radius: 50%;
+  border: 2px solid white;
+  position: absolute;
+  bottom: 2px;
+  left: 78%;
+  transform: translateX(-50%);
+}
+.metismenu li {
+  padding: 0.5rem 0.5rem;
+}
+
+.mm-active > a {
+  color: #000 !important;
+  background: #d1e3da4f;
+  border-radius: 5px;
+  font-weight: 500;
+}
+.mm-active > a i {
+  color:#079952 !important;
 }
